@@ -35,7 +35,7 @@ console.log(req.body,'body')
      // var decoded = jwt.verify(req.body.token, process.env.Secret_key);
      // console.log(decoded)
       paystack.transaction.verify(req.body.id)
-      .then(function(response, error) {
+      .then(async function(response, error) {
           console.log(response.status)
         if(response.status){
           const userObject = req.body.userObject;
@@ -51,8 +51,9 @@ console.log(req.body,'body')
       console.log(amountToPay,'pay',transactionAmount)
              if(amountToPay === transactionAmount){
                 
-               sendMessage(req.body.id,validArray,req.body.userObject,amountToPay,req.body.selectedPercent,validPrice,);
-               res.status(200).json({'message':'Transaction was successful'})
+           const response =   await  sendMessage(req.body.id,validArray,req.body.userObject,amountToPay,req.body.selectedPercent,validPrice,)
+               console.log(response.data)
+               res.status(200).json({'message':'Transaction was successful','data':response.data.sid})
              }else{
               res.status(404).json({'message':'An error occured'});
              }

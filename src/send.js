@@ -41,13 +41,8 @@ ${products.join('\n')}`
         },
         data : data
       };
-      axios(config)
-.then(function (response) {
-  console.log(JSON.stringify(response.data));
-})
-.catch(function (error) {
-  console.log(error);
-});
+      return axios(config)
+
 }
 
 module.exports = sendMessage;
