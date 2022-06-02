@@ -14,7 +14,7 @@ app.use(cors({origin:true}));
 router.get("/", (req, res) => {
 
   res.json({
-    hello: process.env.Secret_Key
+    hello: 'hi'
   });
 });
 
