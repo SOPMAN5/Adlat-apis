@@ -84,8 +84,8 @@ handler.validCart = (products,cartItems,selectedPercent,res) => {
    console.log(totalPrice)
   if(totalPrice){
       const validOption = [25,50,100];
-     selectedPercent = validOption.includes(selectedPercent) ?selectedPercent:100
-    const amountToPay = totalPrice *(selectedPercent/100)
+     selectedPercent = validOption.includes(NUmber(selectedPercent)) ?Number(selectedPercent):100
+    const amountToPay = totalPrice *(Number(selectedPercent)/100)
     let token = jwt.sign({
         data: amountToPay
       }, process.env.Secret_Key, { expiresIn: 60 * 3 });
