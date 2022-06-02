@@ -23,7 +23,7 @@ router.post('/cart', async(req,res)=>{
     handler.validCart(products,req.body.cart,req.body.selectedPercent,res);
   }catch(err){
     console.log(err)
-    res.status(404).json({'message':'An error occured'});
+    res.status(404).json({'message':'An error occured','err':err});
   }
 
 })
