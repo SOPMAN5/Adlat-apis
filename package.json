@@ -9,7 +9,7 @@
     "dotenv": "^16.0.1",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.5.1",
-    "netlify-lambda": "^1.4.3",
+    "netlify-lambda": "^1.6.3",
     "paystack": "^2.0.1",
     "qs": "^6.10.3",
     "serverless-http": "^1.9.1"

@@ -14,7 +14,7 @@ app.use(cors({origin:true}));
 router.get("/", (req, res) => {
 
   res.json({
-    hello: "hi!"
+    hello: process.env.Secret_Key
   });
 });
 
@@ -79,7 +79,7 @@ console.log(req.body,'body')
 
 
 app.use(`/.netlify/functions/api`, router);
-//app.listen(3001,()=>{console.log(`App is running `)})
+app.listen(3001,()=>{console.log(`App is running `)})
 
 module.exports = app;
 module.exports.handler = serverless(app);
