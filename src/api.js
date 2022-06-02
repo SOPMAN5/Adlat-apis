@@ -22,6 +22,7 @@ router.post('/cart', async(req,res)=>{
   try{
     handler.validCart(products,req.body.cart,req.body.selectedPercent,res);
   }catch(err){
+    console.log(err)
     res.status(404).json({'message':'An error occured'});
   }
 
@@ -78,7 +79,7 @@ console.log(req.body,'body')
 
 
 app.use(`/.netlify/functions/api`, router);
-// app.listen(3001,()=>{console.log(`App is running `)})
+//app.listen(3001,()=>{console.log(`App is running `)})
 
 module.exports = app;
 module.exports.handler = serverless(app);
