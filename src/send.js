@@ -51,27 +51,3 @@ ${products.join('\n')}`
 }
 
 module.exports = sendMessage;
-// const t= {
-//     "id": "T304348622115749",
-//     "cart": [
-//         {
-//             "name": "JOLLOF RICE & FRIED RICE & PLANTAIN (DODO) WITH TWO PROTEIN",
-//             "price": 3500,
-//             "catergory": "NIGERIAN FOODS",
-//             "id": "1g3tn21q804e85c4299488c",
-//             "added": true,
-//             "value": 10
-//         }
-//     ],
-//     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjozNTAwMCwiaWF0IjoxNjU0MTM0OTc3LCJleHAiOjE2NTQxMzUxNTd9.DLzRCY-PirHh8MUq27v4kv64avpJW2bzI-p7da_fMM0",
-//     "selectedPercent": "100",
-//     "userObject": {
-//         "name": "David",
-//         "email": "ahuventures15@gmail.com",
-//         "eventDate": "Friday, June 3, 2022",
-//         "time": "08:49",
-//         "phone": "0904424244522",
-//         "event_type": "Family Enagagement"
-//     }
-// }
-// sendMessage(t.cart,t.userObject,1000,20,2000)
