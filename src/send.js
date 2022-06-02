@@ -34,7 +34,7 @@ ${products.join('\n')}`
       });
     var config = {
         method: 'post',
-        url: `https://api.twilio.com/2010-04-01/Accounts/${process.env.AccountSid }/Messages.json`,
+        url: `https://api.twilio.com/2010-04-01/Accounts/${process.env.Account_Sid }/Messages.json`,
         headers: { 
           'Authorization': 'Basic QUMyNDllZWVmMDcxYjkyMDFhYjg1MjU0MDBkZjU1ODZlNjpmNDkxMTFhYTdkNTJlMjM0MDY2ZDkxMThjMTFhZWYwMw==', 
           'Content-Type': 'application/x-www-form-urlencoded'
