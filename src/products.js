@@ -1,4 +1,4 @@
-const products= [
+let products= [
     {
       name: 'JOLLOF RICE & FRIED RICE & PLANTAIN (DODO) WITH TWO PROTEIN',
       price: 3500,
@@ -148,6 +148,7 @@ const products= [
     },
     {
       name: 'EWA GANYIN WITH SAUCE (2 LITRES BOWL)',
+      litre:2,
       price: 5500,
       catergory: 'NIGERIAN FOODS',
       id: '1g3tn21q9087f42dbf8dd55',
@@ -155,6 +156,7 @@ const products= [
     },
     {
       name: 'EWA GANYIN WITH SAUCE (3 LITRES BOWL)',
+      litre:3,
       price: 6800,
       catergory: 'NIGERIAN FOODS',
       id: '1g3tn21q90f08eb14fa41db',
@@ -162,6 +164,7 @@ const products= [
     },
     {
       name: 'EWA GANYIN WITH SAUCE (5 LITRES BOWL)',
+      litre:5,
       price: 10800,
       catergory: 'NIGERIAN FOODS',
       id: '1g3tn21q90c9b6897d985c1',
@@ -169,6 +172,7 @@ const products= [
     },
     {
       name: 'OFADA SAUCE (2 LITRES BOWL)',
+      litre:2,
       price: 8400,
       catergory: 'SOUPS',
       id: '1g3tn21q90029eb2774d2dd',
@@ -176,6 +180,7 @@ const products= [
     },
     {
       name: 'OFADA SAUCE (3 LITRES BOWL)',
+      litre:3,
       price: 12400,
       catergory: 'SOUPS',
       id: '1g3tn21q901b2797a01f927',
@@ -184,6 +189,7 @@ const products= [
     {
       name: 'OFADA SAUCE (5 LITRES BOWL)',
       price: 20800,
+      litre:5,
       catergory: 'SOUPS',
       id: '1g3tn21q90ae62c76fb7dcc',
       added: false
@@ -191,6 +197,7 @@ const products= [
     {
       name: 'OBE AMALA (2 LITRES BOWL)',
       price: 8400,
+      litre:3,
       catergory: 'SOUPS',
       id: '1g3tn21q909822245ace5c3',
       added: false
@@ -219,12 +226,14 @@ const products= [
     {
       name: 'GBEGIRI (3 LITRES BOWL)',
       price: 3700,
+      litre:3,
       catergory: 'SOUPS',
       id: '1g3tn21q90ba8f8b470658b',
       added: false
     },
     {
       name: 'GBEGIRI (5 LITRES BOWL)',
+      litre:5,
       price: 5700,
       catergory: 'SOUPS',
       id: '1g3tn21q9041f8cd4dce23e',
@@ -232,6 +241,7 @@ const products= [
     },
     {
       name: 'EWEDU (2 LITRES BOWL)',
+      litre:2,
       price: 2700,
       catergory: 'SOUPS',
       id: '1g3tn21q900c80b7efef189',
@@ -239,6 +249,7 @@ const products= [
     },
     {
       name: 'EWEDU (3 LITRES BOWL)',
+      litre:3,
       price: 3700,
       catergory: 'SOUPS',
       id: '1g3tn21q9047f750151e181',
@@ -246,6 +257,7 @@ const products= [
     },
     {
       name: 'EWEDU (5 LITRES BOWL)',
+      litre:5,
       price: 5700,
       catergory: 'SOUPS',
       id: '1g3tn21q905c95bc2fc4fcf',
@@ -253,6 +265,7 @@ const products= [
     },
     {
       name: 'OGBOLO WITH ASSORTED MEAT & FISH (2 LITRES BOWL)',
+      litre:2,
       price: 8400,
       catergory: 'SOUPS',
       id: '1g3tn21q90bdbd834dbec5a',
@@ -260,6 +273,7 @@ const products= [
     },
     {
       name: 'OGBOLO WITH ASSORTED MEAT & FISH (3 LITRES BOWL)',
+      litre:3,
       price: 12500,
       catergory: 'SOUPS',
       id: '1g3tn21q904830155230b51',
@@ -267,6 +281,7 @@ const products= [
     },
     {
       name: 'OGBOLO WITH ASSORTED MEAT & FISH (5 LITRES BOWL)',
+      litre:5,
       price: 20800,
       catergory: 'SOUPS',
       id: '1g3tn21q90868f24e605905',
@@ -274,6 +289,7 @@ const products= [
     },
     {
       name: 'EFO ELEGUSI WITH ASSORTED MEAT (2 LITRES BOWL)',
+      litre:2,
       price: 8500,
       catergory: 'SOUPS',
       id: '1g3tn21q90f149127fec896',
@@ -281,6 +297,7 @@ const products= [
     },
     {
       name: 'EFO ELEGUSI WITH ASSORTED MEAT (3 LITRES BOWL)',
+      litre:3,
       price: 12700,
       catergory: 'SOUPS',
       id: '1g3tn21q906889b23e9f7ef',
@@ -288,6 +305,7 @@ const products= [
     },
     {
       name: 'EFO ELEGUSI WITH ASSORTED MEAT (5 LITRES BOWL)',
+      litre:5,
       price: 20800,
       catergory: 'SOUPS',
       id: '1g3tn21q9065bbcff8f6468',
@@ -295,6 +313,7 @@ const products= [
     },
     {
       name: 'EFO RIRO WITH ASSORTED MEAT (2 LITRES BOWL)',
+      litre:2,
       price: 8400,
       catergory: 'SOUPS',
       id: '1g3tn21q908b148f0c4de89',
@@ -302,6 +321,7 @@ const products= [
     },
     {
       name: 'EFO RIRO WITH ASSORTED MEAT (3 LITRES BOWL)',
+      litre:3,
       price: 12700,
       catergory: 'SOUPS',
       id: '1g3tn21q9066e3d11099cd2',
@@ -309,6 +329,7 @@ const products= [
     },
     {
       name: 'EFO RIRO WITH ASSORTED MEAT (5 LITRES BOWL)',
+      litre:5,
       price: 20700,
       catergory: 'SOUPS',
       id: '1g3tn21q903112bfb9cb2e8',
@@ -363,6 +384,5 @@ const products= [
       id: '1g3tn21q9052a0bcd88712f',
       added: false
     }
-  ];
-
-  module.exports = products;
+  ]
+export default products;
