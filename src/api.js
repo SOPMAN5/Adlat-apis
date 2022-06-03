@@ -32,7 +32,7 @@ console.log(req.body,'body')
   if( req.body.userObject && req.body.id && req.body.cart && req.body.cart.length>0 && req.body.selectedPercent && req.body.token){
     
     try {
-     // var decoded = jwt.verify(req.body.token, process.env.Secret_key);
+     var decoded = jwt.verify(req.body.token, process.env.Secret_key);
      // console.log(decoded)
       paystack.transaction.verify(req.body.id)
       .then(async function(response, error) {
