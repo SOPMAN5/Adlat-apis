@@ -14,7 +14,7 @@ app.use(cors({origin:true}));
 router.get("/", (req, res) => {
 
   res.json({
-    hello: process.env.Secret_key
+    hello: process.env.SECRET_KEY +' '+'KK'
   });
 });
 
@@ -32,7 +32,7 @@ console.log(req.body,'body')
   if( req.body.userObject && req.body.id && req.body.cart && req.body.cart.length>0 && req.body.selectedPercent && req.body.token){
     
     try {
-     var decoded = jwt.verify(req.body.token, process.env.Secret_key);
+     var decoded = jwt.verify(req.body.token, process.env.SECRET_KEY);
      // console.log(decoded)
       paystack.transaction.verify(req.body.id)
       .then(async function(response, error) {
