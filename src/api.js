@@ -55,10 +55,10 @@ console.log(req.body,'body')
                console.log(response.data)
                res.status(200).json({'message':'Transaction was successful','data':response.data.sid})
              }else{
-              res.status(404).json({'message':'An error occured'});
+              res.status(404).json({'message':'invalid amount'});
              }
           }else{
-            res.status(404).json({'message':'An error occured'});
+            res.status(400).json({'message':'Bad request'});
           }
           
           
@@ -69,11 +69,11 @@ console.log(req.body,'body')
       });
     } catch(err) {
       console.log(err)
-      res.status(404).json({'message':'An error occured'});
+      res.status(404).json({'message':'invalid token'});
     }
    
   }else{
-    res.status(404).json({'message':'An error occured'});
+    res.status(404).json({'message':'All fields required'});
   }
   
 })
