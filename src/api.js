@@ -79,7 +79,7 @@ console.log(req.body,'body')
 })
 
 
-// app.use(`/.netlify/functions/api`, router);
+app.use(`/.netlify/functions/api`, router);
 // app.listen(3001,()=>{console.log(`App is running `)})
 
 module.exports = app;
