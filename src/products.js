@@ -385,4 +385,4 @@ let products= [
       added: false
     }
   ]
-export default products;
+module.exports= products;
