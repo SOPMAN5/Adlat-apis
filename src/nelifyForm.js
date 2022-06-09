@@ -10,6 +10,12 @@ const axios = require('axios');
         products.push(e.name,guestno)
       }
     });
+    const encode = (data) => {
+        return Object.keys(data)
+            .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+            .join("&");
+      }
+  
     const nelifyFormData  ={
 'form-name':'contact',
 'Name':`${userObject.name}`,
@@ -30,10 +36,11 @@ const axios = require('axios');
 
       let config = {
         method:'post',
-        url:'/',
+        url:'https://gracious-jackson-fddbc3.netlify.app',
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         data:encode(nelifyFormData)
       }
+      //console.log()
       return axios(config)
 
 }

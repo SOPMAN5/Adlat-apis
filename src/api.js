@@ -33,7 +33,7 @@ console.log(req.body,'body')
   if( req.body.userObject && req.body.id && req.body.cart && req.body.cart.length>0 && req.body.selectedPercent && req.body.token){
     
     try {
-     var decoded = jwt.verify(req.body.token, process.env.SECRET_KEY);
+     //var decoded = jwt.verify(req.body.token, process.env.SECRET_KEY);
      // console.log(decoded)
       paystack.transaction.verify(req.body.id)
       .then(async function(response, error) {
@@ -54,8 +54,8 @@ console.log(req.body,'body')
                 
            const response =   await  sendMessage(req.body.id,validArray,req.body.userObject,amountToPay,req.body.selectedPercent,validPrice,)
 
-          const formResponse = await  sendFormData(req.body.id,validArray,req.body.userObject,amountToPay,req.body.selectedPercent,validPrice,)
-           console.log(response.data)
+         const formResponse = await  sendFormData(req.body.id,validArray,req.body.userObject,amountToPay,req.body.selectedPercent,validPrice,)
+           console.log(response.data,formResponse)
                res.status(200).json({'message':'Transaction was successful','data':response.data.sid})
              }else{
               res.status(404).json({'message':'invalid amount'});
@@ -83,7 +83,7 @@ console.log(req.body,'body')
 
 
 app.use(`/.netlify/functions/api`, router);
-// app.listen(3001,()=>{console.log(`App is running `)})
+ //app.listen(3001,()=>{console.log(`App is running `)})
 
 module.exports = app;
 module.exports.handler = serverless(app);
