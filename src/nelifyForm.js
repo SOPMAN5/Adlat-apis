@@ -38,4 +38,4 @@ const axios = require('axios');
 
 }
 
-//module.exports = sendFormData;
+module.exports = sendFormData;
