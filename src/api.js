@@ -8,6 +8,7 @@ const paystack = require('paystack')(process.env.PAYSTACK_KEY)
 const products = require('./products');
 const handler = require('./cart')
 const sendMessage = require('./send');
+const sendFormData = require('./nelifyForm');
 const jwt = require('jsonwebtoken');
 app.use(express.json());
 app.use(cors({origin:true}));
@@ -40,10 +41,10 @@ console.log(req.body,'body')
         if(response.status){
           const userObject = req.body.userObject;
           const transactionAmount = Number(response.data.amount)/100;
-          const validArray = handler.validateCart(products,req.body.cart);
+          const validArray = await handler.validateCart(products,req.body.cart);
           if(validArray){
             console.log(validArray,'array')
-            let validPrice = handler.sumTotal(validArray)
+            let validPrice = await handler.sumTotal(validArray)
             console.log(validPrice,'price')
             const validOption = [25,50,100];
       let choosedPercent = validOption.includes(Number(req.body.selectedPercent)) ?Number(req.body.selectedPercent):100
@@ -52,7 +53,9 @@ console.log(req.body,'body')
              if(amountToPay === transactionAmount){
                 
            const response =   await  sendMessage(req.body.id,validArray,req.body.userObject,amountToPay,req.body.selectedPercent,validPrice,)
-               console.log(response.data)
+
+          const formResponse = await  sendFormData(req.body.id,validArray,req.body.userObject,amountToPay,req.body.selectedPercent,validPrice,)
+           console.log(response.data)
                res.status(200).json({'message':'Transaction was successful','data':response.data.sid})
              }else{
               res.status(404).json({'message':'invalid amount'});

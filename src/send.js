@@ -2,7 +2,7 @@ const dotenv = require('dotenv').config();
 const qs = require('qs');
 const axios = require('axios');
 //const {sumTotal} = require('./cart'
- const sendMessage = (id,cartArray,userObject,paidAmount,selectedPercent,actualAmout) => {
+ const sendMessage =  (id,cartArray,userObject,paidAmount,selectedPercent,actualAmout) => {
     let  products  = [];
     cartArray.forEach(e=>{
       if(e){
