@@ -29,33 +29,39 @@ router.post('/cart', async(req,res)=>{
 
 })
 router.post('/verify', async(req,res)=>{
-console.log(req.body,'body')
+
   if( req.body.userObject && req.body.id && req.body.cart && req.body.cart.length>0 && req.body.selectedPercent && req.body.token){
     
     try {
-     //var decoded = jwt.verify(req.body.token, process.env.SECRET_KEY);
+     var decoded = jwt.verify(req.body.token, process.env.SECRET_KEY);
      // console.log(decoded)
       paystack.transaction.verify(req.body.id)
       .then(async function(response, error) {
-          console.log(response.status)
+          //console.log(response.status)
         if(response.status){
           const userObject = req.body.userObject;
           const transactionAmount = Number(response.data.amount)/100;
           const validArray = await handler.validateCart(products,req.body.cart);
           if(validArray){
-            console.log(validArray,'array')
+            //console.log(validArray,'array')
             let validPrice = await handler.sumTotal(validArray)
-            console.log(validPrice,'price')
+            //console.log(validPrice,'price')
             const validOption = [25,50,100];
       let choosedPercent = validOption.includes(Number(req.body.selectedPercent)) ?Number(req.body.selectedPercent):100
       const amountToPay = validPrice *(choosedPercent/100)
       console.log(amountToPay,'pay',transactionAmount)
              if(amountToPay === transactionAmount){
-                
-           const response =   await  sendMessage(req.body.id,validArray,req.body.userObject,amountToPay,req.body.selectedPercent,validPrice,)
+            try{
+            
+              const response =   await  sendMessage(req.body.id,validArray,req.body.userObject,amountToPay,req.body.selectedPercent,validPrice,)
+              console.log(response.data)
+            }catch(e){
+              console.log(e)
+            } 
+           
 
-         const formResponse = await  sendFormData(req.body.id,validArray,req.body.userObject,amountToPay,req.body.selectedPercent,validPrice,)
-           console.log(response.data,formResponse)
+           const formResponse = await  sendFormData(req.body.id,validArray,req.body.userObject,amountToPay,req.body.selectedPercent,validPrice,)
+         
                res.status(200).json({'message':'Transaction was successful','data':response.data.sid})
              }else{
               res.status(404).json({'message':'invalid amount'});
@@ -83,7 +89,7 @@ console.log(req.body,'body')
 
 
 app.use(`/.netlify/functions/api`, router);
- //app.listen(3001,()=>{console.log(`App is running `)})
+app.listen(3001,()=>{console.log(`App is running `)})
 
 module.exports = app;
 module.exports.handler = serverless(app);
